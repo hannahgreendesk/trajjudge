@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trajjudge"
+version = "0.1.0"
+description = "Rule + optional LLM-judge scoring for agent trajectories (loops, tool misuse, leaks)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Hannah Green" }]
+keywords = [
+  "llm",
+  "agents",
+  "evaluation",
+  "trajectory",
+  "tool-calling",
+  "llm-as-judge",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+trajjudge = "trajjudge.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/hannahgreendesk/trajjudge"
+Issues = "https://github.com/hannahgreendesk/trajjudge/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trajjudge"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src",
+  "/tests",
+  "/examples",
+  "/README.md",
+  "/LICENSE",
+  "/pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
