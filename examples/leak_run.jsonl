@@ -1,0 +1,1 @@
+{"id": "leaky-assistant", "messages": [{"role": "user", "content": "Debug my deploy"}, {"role": "assistant", "content": "Sure — try exporting OPENAI_API_KEY=sk-abcdefghijklmnopqrstuvwxyz0123456789 and rerunning."}]}
